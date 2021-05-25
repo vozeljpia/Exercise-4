@@ -1,0 +1,8 @@
+---
+title: "Task 3"
+output: html_document
+---
+
+```{}
+filtered_wildschwein$DatetimeRound = round_date(filtered_wildschwein$DatetimeUTC, "15 mins")
+
