@@ -1,0 +1,32 @@
+---
+title: "Task 4"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+#Task 4
+
+wildschwein_rosa = filtered_wildschwein[filtered_wildschwein$TierName == "Rosa",]
+wildschwein_sabi = filtered_wildschwein[filtered_wildschwein$TierName == "Sabi",]
+
+
+joined_pigs = left_join(wildschwein_rosa, wildschwein_sabi, by="DatetimeRound", suffix=c("rosa","sabi"))
+
+
+joined_pigs_dist= joined_pigs %>%
+  mutate(
+ distance = euc.dist(Erosa,Nrosa,Esabi,Nsabi))
+
+joined_pigs_dist
+
+
+joined_pigs_dist = joined_pigs_dist%>%
+  mutate()
+
+
+
+joined_pigs_dist = joined_pigs_dist[joined_pigs_dist$withintreshold_100m==TRUE,]
+joined_pigs_dist = na.omit(joined_pigs_dist)
+
+```
+
