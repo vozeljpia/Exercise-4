@@ -1,0 +1,30 @@
+---
+title: "Exercise_4.Rmd"
+output: html_document
+---
+
+#Import
+library(readr)        
+library(dplyr)        
+library(ggplot2)      
+library(lubridate)
+```
+
+## R Markdown
+
+
+
+{Task 1}
+euc.dist = function(x1,y1,x2,y2) {
+  (sqrt((lead(x2)-x1)^2+(lead(y2)-y1)^2))}
+```
+
+## Including Plots
+
+
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+
