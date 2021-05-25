@@ -1,0 +1,22 @@
+---
+title: "Task 2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+## TASK 2 - look for meet patterns
+wildschwein_BE_2056 = read.delim("wildschwein_BE_2056.csv", ",", header = TRUE)
+str(wildschwein_BE_2056)
+wildschwein_BE_2056$DatetimeUTC =as.POSIXct(wildschwein_BE_2056$DatetimeUTC, format ="%Y-%m-%d T%H:%M:%SZ",tz="UTC")
+
+
+# 01.04.2015 - 15.04.2015
+filtered_wildschwein = wildschwein_BE_2056 %>%
+  filter(DatetimeUTC >= "2015-04-01" & DatetimeUTC <= "2015-04-15") %>%
+  filter(TierName %in% c("Rosa", "Sabi")) 
+
+str(filtered_wildschwein)
+```
+
+
+
