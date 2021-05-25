@@ -1,0 +1,49 @@
+---
+title: "Task_5"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+```
+
+
+
+#5 Task
+
+rosaplot = ggplot(wildschwein_rosa, aes(y=N, x=E, col=TierName) ) +
+  geom_point(color="red")
+
+
+sabiplot = ggplot(wildschwein_sabi, aes(y=N, x=E, col = TierName) ) +
+  geom_point(color="yellow")
+
+
+meetsplot = ggplot(joined_pigs_dist, aes(y=Nsabi, x=Esabi, col = withintreshold_100m ==TRUE) ) +
+  geom_point()
+
+
+joinedplot = ggplot() + 
+  geom_point(wildschwein_sabi, mapping= aes(y=N, x=E),color="red") +
+  geom_point(wildschwein_rosa, mapping= aes(y=N, x=E), color = "yellow")+
+  geom_point(joined_pigs_dist, mapping= aes(y=Nsabi, x=Esabi, col = withintreshold_100m ==TRUE), color="orange")+
+  coord_cartesian(xlim =c(2570000, 2571000), ylim=c(1204500, 1205500))
+
+
+
+joinedplot = ggplot() + 
+  geom_point(wildschwein_sabi, mapping= aes(y=N, x=E,color="red")) +
+  geom_point(wildschwein_rosa, mapping= aes(y=N, x=E,color = "yellow"))+
+  geom_point(joined_pigs_dist, mapping= aes(y=Nsabi, x=Esabi, color="orange"))+
+  coord_cartesian(xlim =c(2570000, 2571000), ylim=c(1204500, 1205500)) + 
+  scale_colour_manual(name = 'Locations', 
+                      values =c('red'='red','yellow'='yellow', 'orange'='orange'), labels = c('c2','c1','c3'))
+
+
+joinedplot = ggplot() + 
+  geom_point(wildschwein_sabi, mapping= aes(y=N, x=E, color="sabi")) +
+  geom_point(wildschwein_rosa, mapping= aes(y=N, x=E, color="rosa"))+
+  geom_point(joined_pigs_dist, mapping= aes(y=Nsabi, x=Esabi, color="meet"))+
+  coord_cartesian(xlim =c(2570000, 2571000), ylim=c(1204500, 1205500))+ 
+  scale_colour_manual(name = 'Locations', 
+                      values =c('sabi'='#9fc0f5','rosa'='#f59f9f',"meet" = "#8dfc5d"), labels = c('meet','rosa',"sabi"))
